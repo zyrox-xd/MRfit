@@ -843,6 +843,533 @@
                 text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
             }
         }
+         /* Improved Reel Section Styles */
+        .instagram-reels {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instagram-reels h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .instagram-reels h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-red);
+        }
+        
+        .reels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 15px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-red) transparent;
+        }
+        
+        .reels-container::-webkit-scrollbar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .reels-container::-webkit-scrollbar-thumb {
+            background: var(--accent-red);
+            border-radius: 10px;
+        }
+        
+        .reel-item {
+            flex: 0 0 300px;
+            height: 530px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+        }
+        
+        .reel-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 0, 0, 0.3);
+        }
+        
+        .reel-video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-video {
+            transform: scale(1.05);
+        }
+        
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reel-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .reel-item:hover .reel-content {
+            transform: translateY(0);
+        }
+        
+        .reel-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .reel-description {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-description {
+            max-height: 100px;
+            opacity: 1;
+        }
+        
+        .reel-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .reel-stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .reel-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .reel-stat i {
+            color: var(--accent-red);
+        }
+        
+        .reel-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(230, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+        
+        .reel-play-btn i {
+            font-size: 2rem;
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .reel-item:hover .reel-play-btn {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .instagram-handle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 4;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .instagram-handle:hover {
+            background: rgba(230, 0, 0, 0.7);
+        }
+        
+        .instagram-handle i {
+            color: var(--accent-red);
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .view-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(230, 0, 0, 0.5);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reel-item {
+                flex: 0 0 280px;
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .reel-item {
+                flex: 0 0 260px;
+                height: 460px;
+            }
+            
+            .reel-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .reel-item {
+                flex: 0 0 240px;
+                height: 420px;
+            }
+            
+            .reel-overlay {
+                padding: 15px;
+            }
+            
+            .reel-title {
+                font-size: 1.2rem;
+            }
+            
+            .reel-description {
+                font-size: 0.85rem;
+            }
+        }
+         .instagram-reels {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instagram-reels h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #e60000;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .instagram-reels h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #e60000;
+        }
+        
+        .reels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 15px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: #e60000 transparent;
+        }
+        
+        .reels-container::-webkit-scrollbar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .reels-container::-webkit-scrollbar-thumb {
+            background: #e60000;
+            border-radius: 10px;
+        }
+        
+        .reel-item {
+            flex: 0 0 300px;
+            height: 530px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+        }
+        
+        .reel-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 0, 0, 0.3);
+        }
+        
+        .reel-video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-video {
+            transform: scale(1.05);
+        }
+        
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reel-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .reel-item:hover .reel-content {
+            transform: translateY(0);
+        }
+        
+        .reel-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .reel-description {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-description {
+            max-height: 100px;
+            opacity: 1;
+        }
+        
+        .reel-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .reel-stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .reel-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .reel-stat i {
+            color: #e60000;
+        }
+        
+        .reel-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(230, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+        
+        .reel-play-btn i {
+            font-size: 2rem;
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .reel-item:hover .reel-play-btn {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .instagram-handle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 4;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .instagram-handle:hover {
+            background: rgba(230, 0, 0, 0.7);
+        }
+        
+        .instagram-handle i {
+            color: #e60000;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .view-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e60000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(230, 0, 0, 0.5);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reel-item {
+                flex: 0 0 280px;
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .reel-item {
+                flex: 0 0 260px;
+                height: 460px;
+            }
+            
+            .reel-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .reel-item {
+                flex: 0 0 240px;
+                height: 420px;
+            }
+            
+            .reel-overlay {
+                padding: 15px;
+            }
+            
+            .reel-title {
+                font-size: 1.2rem;
+            }
+            
+            .reel-description {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -894,7 +1421,7 @@
                     <p>At M.R Fitness, we believe in the transformative power of fitness. Our supportive community and expert trainers create an environment where you can push your limits, break barriers, and become the best version of yourself.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3" alt="M.R Fitness Gym Interior">
+                    <img src="mrlogo.jpg" alt="M.R Fitness Gym Interior">
                 </div>
             </div>
         </div>
@@ -944,11 +1471,10 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Fuel & Refreshments</h3>
-                    <p>Nutritional supplements and healthy refreshments to fuel your workout and recovery.</p>
-                </div>
+                    <h3>Cardio & Endurance</h3>
+                    <p>Comprehensive cardio programs to improve heart health, stamina, and overall fitness.</p>
             </div>
         </div>
     </section>
@@ -961,13 +1487,13 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3" alt="Gym Equipment">
+                    <img src="fit.jpg" alt="Gym Equipment">
                     <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3" alt="Personal Training">
+                    <img src="train.jpg" alt="Personal Training">
                     <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -979,48 +1505,179 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f7e1cf35a9?ixlib=rb-4.0.3" alt="Fitness Class">
+                    <img src="trainer.jpg" alt="Fitness Class">
                     <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3" alt="Cardio Area">
+                    <img src="cardio.jpg" alt="Cardio Area">
                     <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1556817412-0f3b15b53b3e?ixlib=rb-4.0.3" alt="Gym Interior">
+                    <img src="mr" alt="Gym Members">
                     <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="instagram-reels">
-                <h3>Instagram Reels</h3>
-                <div class="reels-container">
-                    <div class="reel-item">
-                        <div class="reel-play">
-                            <i class="fab fa-instagram"></i>
+    <!-- Instagram Reels Section -->
+    <section class="instagram-reels">
+        <div class="container">
+            <h3>Instagram Reels</h3>
+            <div class="reels-container">
+                <!-- Reel 1 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" muted loop playsinline poster="">
+                            <source src="insta4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Maviya Ruknuddin</h4>
+                                <p class="reel-description">Meet our founder, Maviya Ruknuddin, whose vision and passion for fitness have made M.R Fitness a reality. His dedication to excellence inspires our entire team.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>1.9K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>93</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="reel-item">
-                        <div class="reel-play">
-                            <i class="fab fa-instagram"></i>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
                         </div>
-                    </div>
-                    <div class="reel-item">
-                        <div class="reel-play">
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
                             <i class="fab fa-instagram"></i>
-                        </div>
+                            <span>@m.r_fitness__</span>
+                        </a>
                     </div>
-                    <div class="reel-item">
-                        <div class="reel-play">
+                </div>
+                
+                <!-- Reel 2 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" muted loop playsinline poster="">
+                            <source src="insta2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">intence Workout</h4>
+                                <p class="reel-description">Watch our members push their limits with intense workouts. From strength training to cardio, every session is a step towards greatness.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>3.1K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>124</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
                             <i class="fab fa-instagram"></i>
-                        </div>
+                            <span>@m.r_fitness__</span>
+                        </a>
                     </div>
+                </div>
+                
+                <!-- Reel 3 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" muted loop playsinline poster="">
+                            <source src="insta3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Progress Journey</h4>
+                                <p class="reel-description">Follow the inspiring journeys of our members as they transform their bodies and lives through dedication and hard work. Every drop of sweat counts!</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>4.7K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>216</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Reel 4 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" muted loop playsinline poster="">
+                            <source src="insta1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Gym Interior</h4>
+                                <p class="reel-description">Explore our state-of-the-art gym facilities designed for optimal performance and comfort. From premium equipment to a motivating atmosphere, M.R Fitness has it all.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>2.4K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>87</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-more">
+                <a href="https://instagram.com/m.r_fitness__" target="_blank">
+                    <span>View More on Instagram</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
                 </div>
             </div>
         </div>
@@ -1230,6 +1887,50 @@
                 }
             });
         }
+                // Video play on hover functionality
+        document.querySelectorAll('.reel-video').forEach(video => {
+            const reelItem = video.closest('.reel-item');
+            
+            // Ensure videos are paused initially
+            video.pause();
+            
+            reelItem.addEventListener('mouseenter', () => {
+                video.play().catch(e => console.log("Video play error:", e));
+            });
+            
+            reelItem.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            
+            // Click to play/pause functionality
+            const playBtn = reelItem.querySelector('.reel-play-btn');
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video.paused) {
+                    video.play();
+                    playBtn.style.opacity = '0';
+                } else {
+                    video.pause();
+                    playBtn.style.opacity = '1';
+                }
+            });
+        });
+        
+        // Handle video click to pause
+        document.querySelectorAll('.reel-video').forEach(video => {
+            video.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (this.paused) {
+                    this.play();
+                    this.closest('.reel-item').querySelector('.reel-play-btn').style.opacity = '0';
+                } else {
+                    this.pause();
+                    this.closest('.reel-item').querySelector('.reel-play-btn').style.opacity = '1';
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
