@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.R Fitness - Bhatkal's Premier Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #141414;
+            --accent-red: #e60000;
+            --light-red: #ff3333;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --section-padding: 80px 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-red);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--accent-red);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-red);
+            border: 2px solid var(--accent-red);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-red);
+            color: var(--white);
+        }
+
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-red), var(--light-red));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-red);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-red);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 span {
+            color: var(--accent-red);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .highlight-text {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(230, 0, 0, 0.2);
+            padding: 10px 30px;
+            border-radius: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--accent-red);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            background: rgba(230, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--secondary-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+            padding: 40px 20px;
+            border: 1px solid rgba(230, 0, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(230, 0, 0, 0.2);
+            border-color: var(--accent-red);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-red);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--secondary-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(230, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .instagram-reels {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .instagram-reels h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+        }
+
+        .reels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 0 30px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-red) transparent;
+        }
+
+        .reels-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .reels-container::-webkit-scrollbar-thumb {
+            background: var(--accent-red);
+            border-radius: 10px;
+        }
+
+        .reel-item {
+            flex: 0 0 280px;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #000, var(--dark-gray));
+        }
+
+        .reel-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 50%);
+        }
+
+        .reel-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            z-index: 2;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--accent-red);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-details i {
+            color: var(--accent-red);
+            font-size: 1.3rem;
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-red);
+            outline: none;
+            background: rgba(230, 0, 0, 0.1);
+        }
+
+        .map-container {
+            height: 300px;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #000, var(--dark-gray));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-logo h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 span {
+            color: var(--accent-red);
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-red);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-bg);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-red);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(230, 0, 0, 0.5);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(230, 0, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--secondary-bg);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 40px 0;
+                transition: var(--transition);
+                align-items: center;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .highlight-text {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 60px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .highlight-text {
+                font-size: 1.1rem;
+                padding: 8px 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        a {
+  text-decoration: none;
+}
+ .credits {
+            position: relative;
+            display: inline-block;
+            padding: 0 5px;
+        }
+        
+        .credits a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #e60000, #ff3333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .credits a:hover {
+            animation: creditsPulse 1.5s infinite;
+            text-shadow: 0 0 10px rgba(255, 51, 51, 0.7);
+        }
+        
+        .credits a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #e60000, #ff3333);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .credits a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        @keyframes creditsPulse {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 51, 51, 0.9);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+            }
+        }
+         /* Improved Reel Section Styles */
+        .instagram-reels {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instagram-reels h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .instagram-reels h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-red);
+        }
+        
+        .reels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 15px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-red) transparent;
+        }
+        
+        .reels-container::-webkit-scrollbar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .reels-container::-webkit-scrollbar-thumb {
+            background: var(--accent-red);
+            border-radius: 10px;
+        }
+        
+        .reel-item {
+            flex: 0 0 300px;
+            height: 530px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+        }
+        
+        .reel-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 0, 0, 0.3);
+        }
+        
+        .reel-video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-video {
+            transform: scale(1.05);
+        }
+        
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reel-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .reel-item:hover .reel-content {
+            transform: translateY(0);
+        }
+        
+        .reel-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .reel-description {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-description {
+            max-height: 100px;
+            opacity: 1;
+        }
+        
+        .reel-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .reel-stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .reel-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .reel-stat i {
+            color: var(--accent-red);
+        }
+        
+        .reel-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(230, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+        
+        .reel-play-btn i {
+            font-size: 2rem;
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .reel-item:hover .reel-play-btn {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .instagram-handle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 4;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .instagram-handle:hover {
+            background: rgba(230, 0, 0, 0.7);
+        }
+        
+        .instagram-handle i {
+            color: var(--accent-red);
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .view-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(230, 0, 0, 0.5);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reel-item {
+                flex: 0 0 280px;
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .reel-item {
+                flex: 0 0 260px;
+                height: 460px;
+            }
+            
+            .reel-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .reel-item {
+                flex: 0 0 240px;
+                height: 420px;
+            }
+            
+            .reel-overlay {
+                padding: 15px;
+            }
+            
+            .reel-title {
+                font-size: 1.2rem;
+            }
+            
+            .reel-description {
+                font-size: 0.85rem;
+            }
+        }
+         .instagram-reels {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instagram-reels h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #e60000;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .instagram-reels h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #e60000;
+        }
+        
+        .reels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 15px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: #e60000 transparent;
+        }
+        
+        .reels-container::-webkit-scrollbar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .reels-container::-webkit-scrollbar-thumb {
+            background: #e60000;
+            border-radius: 10px;
+        }
+        
+        .reel-item {
+            flex: 0 0 300px;
+            height: 530px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+        }
+        
+        .reel-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 0, 0, 0.3);
+        }
+        
+        .reel-video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-video {
+            transform: scale(1.05);
+        }
+        
+        .reel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reel-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .reel-item:hover .reel-content {
+            transform: translateY(0);
+        }
+        
+        .reel-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .reel-description {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .reel-item:hover .reel-description {
+            max-height: 100px;
+            opacity: 1;
+        }
+        
+        .reel-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .reel-stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .reel-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .reel-stat i {
+            color: #e60000;
+        }
+        
+        .reel-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(230, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+        
+        .reel-play-btn i {
+            font-size: 2rem;
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .reel-item:hover .reel-play-btn {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .instagram-handle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 4;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .instagram-handle:hover {
+            background: rgba(230, 0, 0, 0.7);
+        }
+        
+        .instagram-handle i {
+            color: #e60000;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .view-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e60000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(230, 0, 0, 0.5);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reel-item {
+                flex: 0 0 280px;
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .reel-item {
+                flex: 0 0 260px;
+                height: 460px;
+            }
+            
+            .reel-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .reel-item {
+                flex: 0 0 240px;
+                height: 420px;
+            }
+            
+            .reel-overlay {
+                padding: 15px;
+            }
+            
+            .reel-title {
+                font-size: 1.2rem;
+            }
+            
+            .reel-description {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#home"><h1>M.R <span>FITNESS</span></h1></a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>BE STRONG. <span>TRAIN HARD.</span></h1>
+            <p>M.R Fitness is Bhatkal's premier fitness destination offering professional training and premium facilities to transform your body and mind.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Admission Open - Join Now</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>M.R Fitness - Bhatkal's Top Gym</h3>
+                    <p>Founded by Maviya Ruknuddin, M.R Fitness has established itself as the premier fitness center in Bhatkal, Karnataka. Our mission is to provide a world-class training environment with expert guidance to help our members achieve their fitness goals.</p>
+                    <p>We specialize in professional bodybuilding, personal training, and holistic fitness programs tailored to individual needs. Our state-of-the-art facility is equipped with the latest machines and staffed by certified trainers passionate about your success.</p>
+                    <div class="quote">
+                        <p>"Not just a gym — it's a lifestyle."</p>
+                    </div>
+                    <p>At M.R Fitness, we believe in the transformative power of fitness. Our supportive community and expert trainers create an environment where you can push your limits, break barriers, and become the best version of yourself.</p>
+                </div>
+                <div class="about-image">
+                    <img src="mrlogo.jpg" alt="M.R Fitness Gym Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Professional Bodybuilding</h3>
+                    <p>Specialized programs designed for competitive bodybuilders and enthusiasts looking to build serious muscle.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <h3>Certified Personal Training</h3>
+                    <p>One-on-one coaching with certified trainers to help you achieve your specific fitness goals efficiently.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Premium Equipment</h3>
+                    <p>State-of-the-art machines and free weights maintained to the highest standards for your workout.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <h3>Strength & Resistance</h3>
+                    <p>Programs focused on building functional strength and endurance through resistance training.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Ice Bath Sessions</h3>
+                    <p>Cryotherapy sessions to enhance recovery, reduce inflammation, and boost performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardio & Endurance</h3>
+                    <p>Comprehensive cardio programs to improve heart health, stamina, and overall fitness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="fit.jpg" alt="Gym Equipment">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="train.jpg" alt="Personal Training">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517344884509-a0c97ec11bcc?ixlib=rb-4.0.3" alt="Weightlifting">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="trainer.jpg" alt="Fitness Class">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="cardio.jpg" alt="Cardio Area">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="mr.jpg" alt="Gym Members" style="object-fit: cover;">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Instagram Reels Section -->
+    <section class="instagram-reels">
+        <div class="container">
+            <h3>Instagram Reels</h3>
+            <div class="reels-container">
+                <!-- Reel 1 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" loop playsinline poster="">
+                            <source src="insta4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Maviya Ruknuddin</h4>
+                                <p class="reel-description">Meet our founder, Maviya Ruknuddin, whose vision and passion for fitness have made M.R Fitness a reality. His dedication to excellence inspires our entire team.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>1.9K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>93</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Reel 2 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" loop playsinline poster="">
+                            <source src="insta2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">intence Workout</h4>
+                                <p class="reel-description">Watch our members push their limits with intense workouts. From strength training to cardio, every session is a step towards greatness.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>3.1K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>124</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Reel 3 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" loop playsinline poster="">
+                            <source src="insta3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Progress Journey</h4>
+                                <p class="reel-description">Follow the inspiring journeys of our members as they transform their bodies and lives through dedication and hard work. Every drop of sweat counts!</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>4.7K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>216</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Reel 4 -->
+                <div class="reel-item">
+                    <div class="reel-video-container">
+                        <video class="reel-video" loop playsinline poster="">
+                            <source src="insta1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h4 class="reel-title">Gym Interior</h4>
+                                <p class="reel-description">Explore our state-of-the-art gym facilities designed for optimal performance and comfort. From premium equipment to a motivating atmosphere, M.R Fitness has it all.</p>
+                                <div class="reel-meta">
+                                    <div class="reel-stats">
+                                        <div class="reel-stat">
+                                            <i class="fas fa-heart"></i>
+                                            <span>2.4K</span>
+                                        </div>
+                                        <div class="reel-stat">
+                                            <i class="fas fa-comment"></i>
+                                            <span>87</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reel-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank" class="instagram-handle">
+                            <i class="fab fa-instagram"></i>
+                            <span>@m.r_fitness__</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-more">
+                <a href="https://instagram.com/m.r_fitness__" target="_blank">
+                    <span>View More on Instagram</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 98458 19090 / +91 96209 94511</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>mrfitness19090@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bhatkal, Karnataka, India</span>
+                        </div>
+                    </div>
+                    <p>Visit our state-of-the-art facility in Bhatkal to experience the best fitness training in the region. Our expert trainers are ready to guide you on your fitness journey.</p>
+                    <a href="https://wa.me/919845819090" class="btn" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                    </a>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.3044077692557!2d74.5434131!3d13.9999559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbc43407d740197%3A0x99e3fe7a1309d802!2sM%20R%20FITNESS%20BHATKAL!5e0!3m2!1sen!2sin!4v1753889897672!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>M.R <span>FITNESS</span></h2>
+                    <p>Bhatkal's premier fitness destination since 2015. We're dedicated to helping you achieve your fitness goals through expert training and premium facilities.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/m.r_fitness__" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Bodybuilding</a></li>
+                        <li><a href="#">Personal Training</a></li>
+                        <li><a href="#">Strength Training</a></li>
+                        <li><a href="#">Ice Bath Therapy</a></li>
+                        <li><a href="#">Ladies Timing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Gents Timing: 5:00 AM - 10:00 PM</li>
+                        <li>Ladies Timing: 10:15 AM - 05:00 PM</li>
+                        <li>Gents Timing: 5:30 PM - 12:00 AM</li>
+                        <li>Friday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 M.R Fitness. All Rights Reserved. | Designed and developed by 
+                    <span class="credits">
+                        <u><a href="https://zomaxa.co" target="_blank">Shaarif at zomaxa.co</a></u>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919845819090" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                }
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling with Formspree
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = 'Sending...';
+                submitButton.disabled = true;
+                
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        alert('Thank you for your message! We will contact you shortly.');
+                        this.reset();
+                    } else {
+                        const data = await response.json();
+                        if (data.errors) {
+                            alert('Error: ' + JSON.stringify(data.errors));
+                        } else {
+                            alert('There was an error submitting the form. Please try again.');
+                        }
+                    }
+                } catch (error) {
+                    alert('Network error. Please try again.');
+                } finally {
+                    // Restore button state
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                }
+            });
+        }
+                // Video play on hover functionality
+        document.querySelectorAll('.reel-video').forEach(video => {
+            const reelItem = video.closest('.reel-item');
+            
+            // Ensure videos are paused initially
+            video.pause();
+            
+            reelItem.addEventListener('mouseenter', () => {
+                video.play().catch(e => console.log("Video play error:", e));
+            });
+            
+            reelItem.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            
+            // Click to play/pause functionality
+            const playBtn = reelItem.querySelector('.reel-play-btn');
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video.paused) {
+                    video.play();
+                    playBtn.style.opacity = '0';
+                } else {
+                    video.pause();
+                    playBtn.style.opacity = '1';
+                }
+            });
+        });
+        
+        // Handle video click to pause
+        document.querySelectorAll('.reel-video').forEach(video => {
+            video.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (this.paused) {
+                    this.play();
+                    this.closest('.reel-item').querySelector('.reel-play-btn').style.opacity = '0';
+                } else {
+                    this.pause();
+                    this.closest('.reel-item').querySelector('.reel-play-btn').style.opacity = '1';
+                }
+            });
+        });
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    alert(data.message);
+  } catch (err) {
+    alert("Error sending message");
+  }
+});
+    </script>
+</body>
+</html>
