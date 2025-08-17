@@ -1713,7 +1713,7 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send a Message</h3>
-                    <form id="contactForm">
+                    <form id="contactForm" action="http://localhost:5000/contact" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1941,7 +1941,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/contact", {
+    const res = await fetch("https://mrfit-backend.onrender.com/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -1950,9 +1950,10 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     const data = await res.json();
     alert(data.message);
   } catch (err) {
-    alert("Error sending message");
+    alert("Network error. Please try again.");
   }
 });
+
     </script>
 </body>
 </html>
